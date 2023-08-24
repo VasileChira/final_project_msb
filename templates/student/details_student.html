@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} {{ student }} {% endblock %}
+
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="card text-center">
+                    <div class="card-header">
+                        {% if student.profile %}
+                            <img src="{{ student.profile.url }}" style="width: 60px; height: 60px"
+                                 alt="nu exista imagine">
+                        {% elif  student.gender == 'Male' %}
+                            <img src="{% static 'images/img_1.png' %}" style="width: 60px; height: 60px"
+                                 alt="nu exista imagine">
+                        {% elif student.gender == 'female' %}
+                            <img src="{% static 'images/img.png' %}" style="width: 60px; height: 60px"
+                                 alt="nu exista imagine">
+                        {% endif %}
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ student }}</h5>
+                        <p class="card-text"><strong>Email: </strong>{{ student.email }}
+                            <a href="{% url 'list_of_students' %}" class="btn btn-primary">Cancel</a>
+                    </div>
+                    <div class="card-footer text-body-secondary">
+                        Created at: {{ student.created_at|date:"d-m-Y" }} / Updated
+                        at: {{ student.update_at|date:"d-m-Y" }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

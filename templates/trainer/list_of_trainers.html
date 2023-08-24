@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} List of Trainers {% endblock %}
+
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>{{ message }}</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endfor %}
+            {% endif %}
+            {% for trainer in alltrainers %}
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-body">
+                            {% if trainer.profile %}
+                                <img src="{{ trainer.profile.url }}" alt="No display">
+                            {% else %}
+                                <img src="{% static 'images/img.png' %}" alt="Profile">
+                            {% endif %}
+                            <h5 class="card-title"> {{ trainer.first_name }} {{ trainer.last_name }}</h5>
+                            <p class="card-text">{{ trainer.course }}</p>
+                            <p class="card-text">{{ trainer.email }}</p>
+                            <p class="card-text">{{ trainer.departament }}</p>
+                            <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle" type="button"
+                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                    More action
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="{% url 'update-trainer' trainer.id%}">Update</a>
+                                    </li>
+                                    <li><a class="dropdown-item" href="{% url 'detele-trainer' trainer.id %}">Delete</a>
+                                    </li>
+                                    <li><a class="dropdown-item" href="{% url 'detail-trainer' trainer.id %}">View Details</a></li>
+                                </ul>
+{#                                <a class="button btn btn-primary" href="#">View Students</a>#}
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+
+{% endblock %}

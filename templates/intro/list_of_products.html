@@ -1,0 +1,39 @@
+{% extends 'base.html' %} {# extindem pagina html base.html #}
+{% block title %} List of Products {% endblock %}
+
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <table class="table table-success table-striped">
+                    <thead>
+                    <tr>
+{#                        <th>Id</th>#}
+                        <th>Nume</th>
+                        <th>Magazin</th>
+                        <th>Pret</th>
+                        <th>Update</th>
+                        <th>Delete</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for product in listproducts %}
+                        <tr>
+{#                            <td>{{ product.id }}</td>#}
+                            <td>{{ product.name}}</td>
+                            <td>{{ product.magazin }}</td>
+                            <td>{{ product.pret }}</td>
+                            <td><a class="btn btn-light" href="{% url 'change-price' product.id %}"> Actualizeaza Pretul </a> </td>
+                            <td><a class="btn btn-light" href="{% url 'delete-product' product.id %}"> Sterge Produsul</a></td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                <a class = "btn btn-danger" href="{% url 'list-of-cars' %}">Go to list of Cars</a>
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}
+

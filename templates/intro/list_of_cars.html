@@ -1,0 +1,65 @@
+{% extends 'base.html' %} {# extindem pagina html base.html #}
+
+{% block title %} List of cars {% endblock %}
+
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="col-md-8 offset-md-2">{# aici cele 12 fasii se calculeaza : 8 + 2*2=12 #}
+                <table class="table table-success table-hover">
+                    <thead>
+                    <tr>
+                        <th>Brand</th>
+                        <th>Model</th>
+                        <th>Year</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for car in all_cars %}
+                        <tr>
+                            <td>{{ car.brand }}</td>
+                            <td>{{ car.model }}</td>
+                            <td>{{ car.year }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                <a class="btn btn-danger" href="{%  url 'list-of-products' %}">Go to Products </a>
+            </div>
+
+
+
+{#            <div class="col-md-6">#}
+{##}
+{#                <table class="table table-success table-hover">#}
+            {#                    <thead>#}
+            {#                    <tr>#}
+            {#                        <th>Brand</th>#}
+            {#                        <th>Model</th>#}
+            {#                        <th>Year</th>#}
+            {#                    </tr>#}
+            {#                    </thead>#}
+            {#                    <tbody>#}
+            {#                    {% for car in all_cars %}#}
+            {#                        <tr>#}
+            {#                            <td>{{ car.brand }}</td>#}
+            {#                            <td>{{ car.model }}</td>#}
+            {#                            <td>{{ car.year }}</td>#}
+            {#                        </tr>#}
+            {#                    {% endfor %}#}
+            {#                    </tbody>#}
+            {#                </table>#}
+            {#                <a href="{% url 'list-of-tires' %}">Go to list of Tires </a>#}
+{#            </div>#}
+{#            <div class="col-md-2">#}
+{#                <h3>Hello</h3>#}
+{#            </div>#}
+{#            <div class="col-md-4">#}
+{#                <h4>Hello again</h4>#}
+{#            </div>#}
+        </div>
+
+    </div>
+
+{% endblock %}

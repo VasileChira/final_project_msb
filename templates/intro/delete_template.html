@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %} Delete Product {% endblock %}
+
+{% block content %}
+    <div class ="container-fluid">
+    <form method="post">
+        {% csrf_token %}
+        <h2>Esti sigur ca vrei sa stergi acest produs definitiv?</h2>
+        <input type="submit" value="Da, confirm">
+    </form>
+    </div>
+{% endblock %}
