@@ -1,11 +1,15 @@
 from datetime import datetime
 
+
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from django.core.mail import send_mail, EmailMessage
 from django.shortcuts import render, redirect
+from django.template.loader import get_template
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
 
+from djangoProject.settings import EMAIL_HOST_USER
 from userextend.forms import UserForm
 import random
 
@@ -35,7 +39,38 @@ class UserCreateView(CreateView):
 
         History.objects.create(message= get_message, created_at= datetime.now(), active=True)
 
+        subject = f'Welcome {new_user.first_name} {new_user.last_name}'
+        message = f'Congrats! Your usernema is {new_user.username}.'
 
+        # Trimire  mail FARA TEMPLATE
 
+        subject = 'Adding a new account'
+        message = f'Congratulations! Your username is: {new_user.username}.'
+        # send_mail() -> este o functie definita in cadrul framework -ului care faciliteaza trimitrea de emailuri
+
+        # send_mail(subject, message, 'george@popesc.ro', [new_user.email]) # o folositi cand in settings.py aveti console
+        # send_mail(subject, message, EMAIL_HOST_USER, [new_user.email])
+
+        # Trimire mail CU TEMPLATE
+
+        details_user = {
+            'fullname': f'{new_user.first_name} {new_user.last_name}',
+            'username': new_user.username
+        }
+
+        subject = 'Adding a new account'
+        message = get_template('userextend/mail.html').render(details_user)
+
+        mail = EmailMessage(
+            subject,
+            message,
+            EMAIL_HOST_USER,
+            [new_user.email]
+        )
+        mail.content_subtype = 'html'
+        mail.send()
 
         return redirect('login')
+
+
+

@@ -68,6 +68,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'djangoProject.context_processors.get_all_trainers'
             ],
         },
     },
@@ -141,3 +142,19 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/' # specificam prefixul unde vrem sa fie redirectionat utilizatorul dupa ce se autentifica
 LOGOUT_REDIRECT_URL = '/login/' # specificam prexiul unde vrem sa fie redirection utilizatorul dupa delogare
+
+
+
+#config email
+#console
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # SETARE CARE SPECIFICA CE BACKEND TRB UTILIZAT PT A TRIMITE EMAIL URI
+
+#smtp = simple mail transfer protocol = protocol pt a trimite mailuri
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+EMAIL_HOST = 'mail.aplicatiedjango.ro'
+EMAIL_HOST_USER = 'ro46@aplicatiedjango.ro'
+EMAIL_HOST_PASSWORD = 'Django1234!'
+EMAIL_PORT = 587
+DEFAULT_FROM_EMAIL = 'ro46@aplicatiedjango.ro'
