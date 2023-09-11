@@ -27,20 +27,33 @@
                             <p class="card-text">{{ trainer.course }}</p>
                             <p class="card-text">{{ trainer.email }}</p>
                             <p class="card-text">{{ trainer.departament }}</p>
-                            <div class="dropdown">
-                                <button class="btn btn-secondary dropdown-toggle" type="button"
-                                        data-bs-toggle="dropdown" aria-expanded="false">
-                                    More action
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="{% url 'update-trainer' trainer.id%}">Update</a>
-                                    </li>
-                                    <li><a class="dropdown-item" href="{% url 'detele-trainer' trainer.id %}">Delete</a>
-                                    </li>
-                                    <li><a class="dropdown-item" href="{% url 'detail-trainer' trainer.id %}">View Details</a></li>
-                                </ul>
-{#                                <a class="button btn btn-primary" href="#">View Students</a>#}
-                            </div>
+                            {% if perms.trainer.change_trainer or perms.trainer.delete_trainer or perms.trainer.view_trainer %}
+                                <div class="dropdown">
+                                    <button class="btn btn-secondary dropdown-toggle" type="button"
+                                            data-bs-toggle="dropdown" aria-expanded="false">
+                                        More action
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        {% if perms.trainer.change_trainer %}
+                                        <li><a class="dropdown-item"
+                                               href="{% url 'update-trainer' trainer.id %}">Update</a>
+                                        </li>
+                                            {% endif %}
+                                        {% if perms.trainer.delete_trainer %}
+                                        <li><a class="dropdown-item"
+                                               href="{% url 'detele-trainer' trainer.id %}">Delete</a>
+                                        </li>
+                                            {% endif %}
+                                        {% if perms.trainer.view_trainer %}
+                                        <li><a class="dropdown-item" href="{% url 'detail-trainer' trainer.id %}">View
+                                            Details</a></li>
+                                            {% endif %}
+                                    </ul>
+                                    {#                                <a class="button btn btn-primary" href="#">View Students</a>#}
+                                </div>
+                            {% else %}
+                                <p> No action </p>
+                            {% endif %}
                         </div>
                     </div>
 

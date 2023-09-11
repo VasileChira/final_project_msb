@@ -1,7 +1,7 @@
 from datetime import datetime
 
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.contrib.auth.models import User
 from django.contrib.messages.views import SuccessMessageMixin
 from django.db.models import Q
@@ -19,14 +19,16 @@ from student.models import Student, HistoryStudent
 
 #createview = folost pt a genera un formular pe baza modelului si pt a salba datele in bd
 #succesmessagemixin - folosit pt a afisa un mesaj de succes in momentul in care actiunea a fost realizata cu succes
+# PermissionReuiredMixin -> verificam daca userul logat are permisiunea respectiva, daca user logat NU ARE permisiunea
+# respectiva va fi redirectionat catre pagina 403 (HTTP STATUS)
 
-
-class StudentCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
+class StudentCreateView(LoginRequiredMixin, PermissionRequiredMixin, SuccessMessageMixin, CreateView):
     template_name = 'student/create_student.html'
     model = Student
     form_class = StudentForm
     success_url = reverse_lazy('list_of_students')
     success_message ="{f_name} {l_name}"
+    permission_required = 'student.add_student'
 
     #get succes message e o metoda specifica clasei succes
     def get_success_message(self, cleaned_data):
@@ -54,10 +56,11 @@ class StudentCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
 
 #Listview - folosim pt a afisa inregistrarile din tabela
 
-class StudentListView(LoginRequiredMixin,ListView):
+class StudentListView(LoginRequiredMixin, PermissionRequiredMixin, ListView):
     template_name = 'student/list_of_students.html'
     model = Student
     context_object_name = 'allstudents' #denumirea pt a prelua datele si face query =Student.object.all()
+    permission_required = 'student.view_list_of_students'
 
     # metoda get_queryset este o metoda utlizata in clasele bazate pe vizualizare in Django pentru a obtine
     # si returna setul de obiecte (QuerySet) care va fi folosit pentru a afisare.
@@ -65,28 +68,28 @@ class StudentListView(LoginRequiredMixin,ListView):
         return Student.objects.filter(active=True)
 
 
-
-
 #updateview- pt a actualiza date in bd
 
 
-
-class StudentUpdateView(LoginRequiredMixin,UpdateView):
+class StudentUpdateView(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
     model = Student
     template_name ='student/update_student.html'
     form_class = StudentUpdateForm
     success_url = reverse_lazy('list_of_students')
+    permission_required = 'student.change_students'
 
-class StudentDeleteView(LoginRequiredMixin,DeleteView):
+class StudentDeleteView(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
     model = Student
     template_name = 'student/delete_student.html'
     # pk_url_kwarg = 'id'
     success_url = reverse_lazy('list_of_students')
+    permission_required = 'student.delete_student'
 
 
-class StudentDetailView(LoginRequiredMixin,DetailView):
+class StudentDetailView(LoginRequiredMixin, PermissionRequiredMixin, DetailView):
     model = Student
     template_name = 'student/details_student.html'
+    permission_required = 'student.view_student'
 
 
 #icontains- atribut care cauta string in string

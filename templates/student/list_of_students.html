@@ -7,17 +7,14 @@
         <div class="row">
             <div class="col-md-12">
 
-            {% if messages %}
-                {% for message in messages %}
-                    <div class="alert alert-success alert-dismissible fade show" role="alert">
-                        <strong>Congrats!</strong> {{ message}}
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
-                {% endfor %}
-            {%  endif %}
-
-
-
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <strong>Congrats!</strong> {{ message }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    {% endfor %}
+                {% endif %}
 
                 {% if allstudents %}
                     <table class="table">
@@ -42,16 +39,16 @@
                             <tr>
                                 <td>{{ forloop.counter }}</td>
                                 <td>
-                                {% if student.profile %}
-                                    <img src="{{ student.profile.url }}" style="width: 60px; height: 60px"
-                                         alt="nu exista imagine">
-                                {% elif  student.gender == 'Male' %}
-                                    <img src="{% static 'images/img_1.png' %}" style="width: 60px; height: 60px"
-                                         alt="nu exista imagine">
-                                {% elif student.gender == 'female' %}
-                                    <img src="{% static 'images/img.png' %}" style="width: 60px; height: 60px"
-                                         alt="nu exista imagine">
-                                {% endif %}
+                                    {% if student.profile %}
+                                        <img src="{{ student.profile.url }}" style="width: 60px; height: 60px"
+                                             alt="nu exista imagine">
+                                    {% elif  student.gender == 'Male' %}
+                                        <img src="{% static 'images/img_1.png' %}" style="width: 60px; height: 60px"
+                                             alt="nu exista imagine">
+                                    {% elif student.gender == 'female' %}
+                                        <img src="{% static 'images/img.png' %}" style="width: 60px; height: 60px"
+                                             alt="nu exista imagine">
+                                    {% endif %}
 
                                 </td>
                                 <td>{{ student.first_name }}</td>
@@ -86,19 +83,33 @@
                                         No course
                                     {% endif %}
                                 </td>
-                            <td>
-                                <div class="dropdown">
-                                    <button class="btn btn-secondary dropdown-toggle" type="button"
-                                            data-bs-toggle="dropdown" aria-expanded="false">
-                                        More Actions
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="{% url 'update-student' student.id %}">Update</a></li>
-                                        <li><a class="dropdown-item" href="{% url 'detele-student' student.id %}">Delete</a></li>
-                                        <li><a class="dropdown-item" href="{% url 'detail-student' student.id %}">View Details</a></li>
-                                    </ul>
-                                </div>
-                            </td>
+                                <td>
+                                    {% if perms.student.change_student or perms.student.delete_student or perms.student.view_student %}
+                                    <div class="dropdown">
+                                        <button class="btn btn-secondary dropdown-toggle" type="button"
+                                                data-bs-toggle="dropdown" aria-expanded="false">
+                                            More Actions
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            {% if perms.student.change_student %}
+                                            <li><a class="dropdown-item"
+                                                   href="{% url 'update-student' student.id %}">Update</a></li>
+                                            {% endif %}
+                                            {% if perms.student.delete_student %}
+                                            <li><a class="dropdown-item"
+                                                   href="{% url 'detele-student' student.id %}">Delete</a></li>
+                                            {% endif %}
+                                            {% if perms.student.view_student %}
+                                                <li><a class="dropdown-item"
+                                                       href="{% url 'detail-student' student.id %}">View Details</a>
+                                                </li>
+                                            {% endif %}
+                                                </ul>
+                                                </div>
+                                            {% else %}
+                                                <p> No action </p>
+                                            {% endif %}
+                                </td>
                             </tr>
                         {% endfor %}
                         </tbody>
