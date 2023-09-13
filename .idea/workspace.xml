@@ -5,21 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b34ac16-5085-44ec-b253-f38bd12a1ab9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/carousel/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/carousel/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/carousel/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/carousel/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/carousel/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/carousel/tests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/carousel/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/carousel/views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/carousel_images/picture1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/carousel_images/picture2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/carousel_images/picture3.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5bceb6e5-1842-496d-808d-e01d1b12922f.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/5bceb6e5-1842-496d-808d-e01d1b12922f.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/djangoProject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/djangoProject.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/djangoProject/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/djangoProject/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/student/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/student/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/student/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/student/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home/homepage.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/homepage.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/navbar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/student/list_of_students.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/student/list_of_students.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/trainer/list_of_trainers.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/trainer/list_of_trainers.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainer/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/trainer/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/userextend/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/userextend/admin.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,28 +31,55 @@
   <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="ProjectId" id="2UcNdnoGrEGlAbtJesu0zc96TTF" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/40745/Desktop/djangoProject_2&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/40745/Desktop/Movie-Store-Django-master&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PythonContentEntriesConfigurable&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="PyConsoleOptionsProvider">
+    <option name="myPythonConsoleState">
+      <console-settings module-name="djangoProject" is-module-sdk="true">
+        <option name="myUseModuleSdk" value="true" />
+        <option name="myModuleName" value="djangoProject" />
+      </console-settings>
+    </option>
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\djangoProject_2\static\images" />
+      <recent name="C:\djangoProject_2\media\carousel_images" />
+      <recent name="C:\djangoProject_2" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="djangoProject" type="Python.DjangoServer" factoryName="Django server">
       <module name="djangoProject" />
@@ -60,10 +89,9 @@
         <env name="PYTHONUNBUFFERED" value="1" />
         <env name="DJANGO_SETTINGS_MODULE" value="djangoProject.settings" />
       </envs>
-      <option name="SDK_HOME" value="C:\Users\40745\Desktop\djangoProject\venv\Scripts\python.exe" />
-      <option name="SDK_NAME" value="Python 3.11 (djangoProject) (2)" />
+      <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
+      <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="launchJavascriptDebuger" value="false" />
@@ -79,6 +107,9 @@
     </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration>C:\Users\40745\AppData\Roaming\Subversion</configuration>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="2b34ac16-5085-44ec-b253-f38bd12a1ab9" name="Changes" comment="" />
@@ -94,10 +125,21 @@
       <workItem from="1693842726521" duration="946000" />
       <workItem from="1694020645421" duration="198000" />
       <workItem from="1694370138112" duration="40000" />
+      <workItem from="1694619158561" duration="4089000" />
+      <workItem from="1694627351086" duration="27000" />
+      <workItem from="1694627414565" duration="522000" />
+      <workItem from="1694628392041" duration="98000" />
+      <workItem from="1694628604063" duration="50000" />
+      <workItem from="1694629084852" duration="64000" />
+      <workItem from="1694629170328" duration="15000" />
+      <workItem from="1694629199951" duration="334000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>
